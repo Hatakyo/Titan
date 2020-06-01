@@ -20,7 +20,9 @@
 	<br><!--lenh xuong dong-->
 
     <?php
-       session_start();
+			if (session_status() == PHP_SESSION_NONE) {
+				session_start();
+			}
         require_once "./connect.php";
         $id = $_GET['id'];   
 		$sql = "SELECT * FROM sanpham  where id_sp='$id' ";

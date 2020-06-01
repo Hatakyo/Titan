@@ -24,9 +24,11 @@ if (session_status() == PHP_SESSION_NONE) {
 	session_start();
 }
 require_once "./connect.php";
-$id = $_GET['id'];
-$sql = "SELECT * FROM cart  where id_sp='$id' ";
-$query = $connection->query($sql);
+if(isset($_GET['id'])) {
+	$id = $_GET['id'];
+	$sql = "SELECT * FROM cart  where id_sp='$id' ";
+	$query = $connection->query($sql);
+}
 echo '<table  width="100%" border="0"  >';
 echo '<tr style="height: 50px; text-align: center; border-bottom-style:solid;background-color:#CCC">';
 echo '<th width="23%">Tên Sản phẩm</th>';
@@ -58,6 +60,9 @@ echo '</tr> ';
 //         echo '</td>';
 //     echo '</tr>';
 // }   
+?>
+<form action="./checkout.php" method="post">
+<?php
 foreach ($_SESSION['cart'] as $key => $value) {
 	echo '<tr style="text-align: center;">';
 	echo '<td width="23%">';
@@ -76,7 +81,7 @@ foreach ($_SESSION['cart'] as $key => $value) {
 	echo '<a style="margin: 0;" class="sum";>' . number_format($value['gia']) . 'VNĐ' . '</a>';
 	echo '</td>';
 	echo '<td width="14%">';
-	echo '<a href="cart.php?id=' . $key . '" style="margin: 0;">' . 'X' . '</a>';
+	echo '<a href="updateCart.php?id=' . $key . '" style="margin: 0;">' . 'X' . '</a>';
 	echo '</td>';
 	echo '</tr>';
 }
@@ -104,6 +109,7 @@ echo '</table> ';
 		//return cost * quantity;
 	}
 </script>
+</form>
 </body>
 
 </html>

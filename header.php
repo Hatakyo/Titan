@@ -67,7 +67,7 @@
 	<div class="menu">
 		<table width="100%" border="0">
 			<tr>
-				<th width="20%"><a href=""><img src="./img/logo.png" width="220px" height="80px"> </a> </th>
+				<th width="20%"><a href="home.php"><img src="./img/logo.png" width="220px" height="80px"> </a> </th>
 				<th width="15%"><a href="home.php">trang chủ </a> </th>
 				<th width="15%"><a href="sanpham.php">sản phẩm </a> </th>
 				<th width="15%"><a href="gioithieu.php">giới thiệu</a> </th>
@@ -94,7 +94,7 @@
 						</li>
 					</ul>
 				</th>
-				<th width="10%"><a href="#"><img src="./img/giohang.jpg" width="30px" height="30px"></a></th>
+				<th width="10%"><a href="./cart.php"><img src="./img/giohang.jpg" width="30px" height="30px"></a></th>
 			</tr>
 		</table>
 	</div>

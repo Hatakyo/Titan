@@ -28,7 +28,7 @@
             echo '<div class="sanpham">';
             echo '<tr>';
 			echo '<td>';
-			echo '<img src="./img/'.$row['anh'].'" alt=""/ width="229" height="200">'. '<br />';
+			echo '<a href="chitietsp.php?id='.$row['id_sp'].'" style="margin: 0;"><img src="./img/'.$row['anh'].'" alt=""/ width="229" height="200">'. '</a><br />';
 			echo '</td>';
             echo '<td>'; 
             echo '<a href="chitietsp.php?id='.$row['id_sp'].'" style="margin: 0;">'. $row['ten'] .'</a>'  . '<br />';

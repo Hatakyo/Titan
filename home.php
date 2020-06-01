@@ -26,6 +26,11 @@
 			margin-left: 120px;
 			text-align: center;
 		}
+
+		.sp img {
+			transition: all .3s ease-in-out;
+		}
+
 		.sp img:hover {
 			transform: scale(1.2);
 		}
@@ -77,7 +82,6 @@ echo '</table>';
 <br />
 <br />
 <?php
-// session_start();
 require_once "./connect.php";
 $sql = "SELECT * FROM danhmuc";
 $query = $connection->query($sql);
