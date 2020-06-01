@@ -5,9 +5,9 @@
 <title>Untitled Document</title>
 <style>
 .dangki table{
-style: font-weight: bold;	
+font-weight: bold;	
 text-align:left;
-margin-left:38%;
+margin: 0 auto;
 }
 .dangki h2 {	
 	color: red;
@@ -20,7 +20,7 @@ margin-left:38%;
 	font-size: 30px;
 	}
 .login{
-	margin-left:530px;
+	display: flex;
 	}
 </style>
 </head>
@@ -41,11 +41,11 @@ margin-left:38%;
    </tr>
    <tr>
      <td>Nhập lại mật khẩu : <br /><input name="pass" type="text" style="height: 25px;width: 327px;border-style: solid; padding: 5px 10px"></td>
-   </tr>
-   </table>
-
-    <div class="login">  
-  <a href="login.php" style="text-align:center">bạn đã có tài khoản với chúng tôi? Đăng nhập </a>
+	 </tr>
+	</table>
+	
+	<div class="login">  
+		<a href="login.php" style="margin: 0 auto">bạn đã có tài khoản với chúng tôi? Đăng nhập </a>
   </div>
 <div class="buton">  
     <a><input type="submit" value="Đăng kí"></a>
