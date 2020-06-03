@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 	<style>
 		div {
@@ -81,15 +83,13 @@
 								if (session_status() == PHP_SESSION_NONE) {
 									session_start();
 								}
-								if (isset($_SESSION['isLogin'])) {
-									echo '<li><a href="logout.php"> Xin chào, ' . $_SESSION['username'] . '</a></li>';
-									echo '<li><a href="logout.php" style="color: red;">Đăng xuất</a></li>';
-								} else {
-									echo '<li><a href="login.php">Đăng nhập</a></li>';
-									echo '<li><a href="dangki.php">Đăng kí</a></li>';
-								}
-								?>
-
+								if (isset($_SESSION['isLogin'])) : ?>
+									<li><a href="logout.php"> Xin chào, <?= $_SESSION['username'] ?></a></li>
+									<li><a href="logout.php" style="color: red;">Đăng xuất</a></li>
+								<?php else : ?>
+									<li><a href="login.php">Đăng nhập</a></li>
+									<li><a href="dangki.php">Đăng kí</a></li>
+								<?php endif ?>
 							</ul>
 						</li>
 					</ul>

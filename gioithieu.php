@@ -1,9 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Untitled Document</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
 	<style>
 		.gioithieu {
 			font-size: 18px;
@@ -16,7 +17,7 @@
 </head>
 
 <body>
-	<div id="header"> <?php include("header.php") ?> </div>
+	<div id="header"><?php require_once 'header.php' ?></div>
 	<hr>
 	<!--tao 1 đường kẻ-->
 	<br>
@@ -34,7 +35,7 @@
 		<p style="margin: 10px;">Với phương trâm "Vui lòng người nhận, đẹp lòng người trao". Quý khách sẽ yên tâm và hài lòng mỗi khi sử dụng dịch vụ của TITAN.</p>
 		<p style="margin: 10px;">Hãy truy cập vào website hoặc gọi đến số điện thoại 0123456789 để được tư vấn miễn phí.</p>
 	</div>
-	<?php include("footer.php") ?>
+	<?php require_once 'footer.php' ?>
 </body>
 
 </html>

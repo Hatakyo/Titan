@@ -17,29 +17,28 @@
 		<input type="text" name="phone" pattern="(\+84|0)\d{9,10}" required>
 
 		<?php
-		if (session_status() == PHP_SESSION_NONE) {
-			session_start();
-		}
-		function vndFormat($priceFloat)
-		{
-			$symbol = 'đ';
-			$symbol_thousand = '.';
-			$decimal_place = 0;
-			$price = number_format($priceFloat, $decimal_place, '', $symbol_thousand);
-			return $price . $symbol;
-		}
-		$total = 0;
-		echo '<div class="gia">';
+			if (session_status() == PHP_SESSION_NONE) {
+				session_start();
+			}
+			function vndFormat($priceFloat) {
+				$symbol = 'đ';
+				$symbol_thousand = '.';
+				$decimal_place = 0;
+				$price = number_format($priceFloat, $decimal_place, '', $symbol_thousand);
+				return $price . $symbol;
+			}
+			$total = 0;
+			echo '<div class="gia">';
 
 
-		foreach ($_SESSION['cart'] as $value) {
-			echo $value['ten'] . '<br />';
-			echo vndFormat($value['gia']) . '<br />';
-			$total += $value['gia'];
-		}
-		echo '</div>';
-		echo '<p>Tổng tiền</p>';
-		echo vndFormat($total);
+			foreach ($_SESSION['cart'] as $value) {
+				echo $value['ten'] . '<br />';
+				echo vndFormat($value['gia']) . '<br />';
+				$total += $value['gia'];
+			}
+			echo '</div>';
+			echo '<p>Tổng tiền</p>';
+			echo vndFormat($total);
 		?>
 		<input type="submit" value="Thanh toán">
 </body>

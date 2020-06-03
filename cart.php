@@ -63,7 +63,6 @@ if (isset($_GET['id'])) {
 			</tr>
 		<?php endforeach;  ?>
 </table>
-
 <hr>
 <!--tao 1 đường kẻ-->
 <br>
