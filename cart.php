@@ -24,69 +24,45 @@ if (session_status() == PHP_SESSION_NONE) {
 	session_start();
 }
 require_once "./connect.php";
-if(isset($_GET['id'])) {
+if (isset($_GET['id'])) {
 	$id = $_GET['id'];
 	$sql = "SELECT * FROM cart  where id_sp='$id' ";
 	$query = $connection->query($sql);
 }
-echo '<table  width="100%" border="0"  >';
-echo '<tr style="height: 50px; text-align: center; border-bottom-style:solid;background-color:#CCC">';
-echo '<th width="23%">Tên Sản phẩm</th>';
-echo '<th width="23%">Hình ảnh</th>';
-echo '<th width="14%">Đơn giá</th>';
-echo '<th width="14%">Số lượng</th>';
-echo '<th width="16%">Thành tiền</th>';
-echo '<th>Xóa</th>';
-echo '</tr> ';
-// while($row = $query->fetch_assoc()) {
-//     echo '<tr style="text-align: center;">';
-//         echo '<td width="23%">'; 
-//         echo '<a style="margin: 0;">'. $row['ten'] .'</a>' ;
-//         echo '</td>';
-//         echo '<td width="23%">';
-//         echo '<img src="./img/'.$row['anh'].'" alt=""/ width="229" height="200">';
-//         echo '</td>';
-//         echo '<td width="14%">';
-//         echo '<a style="margin: 0;" class="cost";>'. number_format( $row['gia']).'VNĐ'.'</a>';
-//         echo '</td>';
-//         echo '<td width="14%">';
-//         echo '<input class="quantity" type="number" value="1" onclick="sum()"  style="height: 25px; width: 90px;" >';
-//         echo '</td>';
-//         echo '<td width="14%">';
-//         echo '<a style="margin: 0;" class="sum";>'. number_format( $row['gia']).'VNĐ'.'</a>';
-//         echo '</td>';
-//         echo '<td width="14%">';
-//         echo '<a href="cart.php?id=0" style="margin: 0;">'.'X'.'</a>';
-//         echo '</td>';
-//     echo '</tr>';
-// }   
 ?>
-<form action="./checkout.php" method="post">
-<?php
-foreach ($_SESSION['cart'] as $key => $value) {
-	echo '<tr style="text-align: center;">';
-	echo '<td width="23%">';
-	echo '<a href="chitietsp.php?id=' . $key . '" style="margin: 0;">' . $value['ten'] . '</a>';
-	echo '</td>';
-	echo '<td width="23%">';
-	echo '<img src="./img/' . $value['anh'] . '" alt=""/ width="229" height="200">';
-	echo '</td>';
-	echo '<td width="14%">';
-	echo '<a style="margin: 0;" class="cost";>' . number_format($value['gia']) . 'VNĐ' . '</a>';
-	echo '</td>';
-	echo '<td width="14%">';
-	echo '<input class="quantity" type="number" value="1" onclick="sum()"  style="height: 25px; width: 90px;" >';
-	echo '</td>';
-	echo '<td width="14%">';
-	echo '<a style="margin: 0;" class="sum";>' . number_format($value['gia']) . 'VNĐ' . '</a>';
-	echo '</td>';
-	echo '<td width="14%">';
-	echo '<a href="updateCart.php?id=' . $key . '" style="margin: 0;">' . 'X' . '</a>';
-	echo '</td>';
-	echo '</tr>';
-}
-echo '</table> ';
-?>
+<table width="100%" border="0">
+	<tr style="height: 50px; text-align: center; border-bottom-style:solid;background-color:#CCC">
+		<th width="23%">Tên Sản phẩm</th>
+		<th width="23%">Hình ảnh</th>
+		<th width="14%">Đơn giá</th>
+		<th width="14%">Số lượng</th>
+		<th width="16%">Thành tiền</th>
+		<th>Xóa</th>
+	</tr>
+	<form action="./checkout.php" method="post">
+		<?php foreach ($_SESSION['cart'] as $key => $value) : ?>
+			<tr style="text-align: center;">
+				<td width="23%">
+					<a href="chitietsp.php?id=<?= $key ?>" style="margin: 0;"><?= $value['ten'] ?></a>
+				</td>
+				<td width="23%">
+					<img src="./img/<?= $value['anh'] ?>" alt="" width="229" height="200">
+				</td>
+				<td width="14%">
+					<a style="margin: 0;" class="cost"><?= number_format($value['gia']) . 'VNĐ' ?></a>
+				</td>
+				<td width="14%">
+					<input class="quantity" type="number" value="1" onclick="sum()" style="height: 25px; width: 90px;">
+				</td>
+				<td width="14%">
+					<a style="margin: 0;" class="sum"><?= number_format($value['gia']) . 'VNĐ' ?></a>
+				</td>
+				<td width="14%">
+					<a href="updateCart.php?id=<?= $key ?>" style="margin: 0;">X</a>
+				</td>
+			</tr>
+		<?php endforeach;  ?>
+</table>
 
 <hr>
 <!--tao 1 đường kẻ-->
@@ -106,7 +82,6 @@ echo '</table> ';
 			currency: 'VND'
 		});
 		document.querySelector('.sum').innerHTML = sum;
-		//return cost * quantity;
 	}
 </script>
 </form>
