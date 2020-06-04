@@ -12,6 +12,12 @@
 			margin: 40px;
 			text-align: center;
 		}
+		.sanpham img {
+			transition: all .3s ease-in-out;
+		}
+
+		.sanpham img:hover {
+			transform: scale(1.2);
 	</style>
 </head>
 

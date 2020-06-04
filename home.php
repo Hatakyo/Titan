@@ -26,8 +26,7 @@
 
 		.xuhuong {
 			float: left;
-			width: 300px;
-			margin-left: 120px;
+			width: 100%;
 			text-align: center;
 		}
 
@@ -36,6 +35,13 @@
 		}
 
 		.sp img:hover {
+			transform: scale(1.2);
+		}
+		.xuhuong img {
+			transition: all .3s ease-in-out;
+		}
+
+		.xuhuong img:hover {
 			transform: scale(1.2);
 		}
 	</style>
@@ -68,7 +74,7 @@
 	while ($row = $query->fetch_assoc()) : ?>
 		<?php
 		$count++;
-		if ($count <= 4) : ?>
+        if ($count <= 5) : ?>
 			<td>
 				<a href="chitietsp.php?id=<?= $row['id_sp'] ?>"><img src="./img/<?= $row['anh'] ?>" alt="" width="229" height="200"></a><br />
 				<a style="margin: 0;"><?= $row['ten'] ?></a><br />
@@ -93,13 +99,11 @@
 	$sql = "SELECT * FROM danhmuc";
 	$query = $connection->query($sql);
 	?>
-	<table class="sp">
+	<table class="xuhuong">
 		<tr>
 			<?php while ($row = $query->fetch_assoc()) : ?>
 				<td>
 					<a href="sanpham.php"><img src="./img/<?= $row['anh'] ?>" alt="" width="229" height="200"></a><br />
-				</td>
-				<td>
 					<a style="margin: 0;"><?= $row['ten'] ?></a><br />
 					<a style="margin: 0;"><?= $row['mota'] ?></a><br />
 				</td>
@@ -107,6 +111,8 @@
 		</tr>
 	</table>
 	<br />
+    <br />
+<div id="footer"><?php include("footer.php"); ?></div>
 </body>
 
 </html>

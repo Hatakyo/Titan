@@ -18,7 +18,7 @@
 		.menu a {
 			text-decoration: none;
 			color: black;
-			font-size: 20px;
+			font-size: 15px;
 			padding: 18px;
 			display: inline-block;
 			margin-right: 50px;
