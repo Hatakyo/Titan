@@ -32,6 +32,9 @@
 	<!--lenh xuong dong-->
 
 	<?php
+	if (session_status() == PHP_SESSION_NONE) {
+		session_start();
+	}
 	require_once './connect.php';
 	$sql = "SELECT * FROM sanpham";
 	$query = $connection->query($sql);
@@ -44,8 +47,8 @@
 				<td>
 					<a href="chitietsp.php?id=<?= $row['id_sp'] ?>" style="margin: 0;"><?= $row['ten'] ?></a><br />
 					<a style="margin: 0;"><?= number_format($row['gia']) ?>VNĐ</a><br />
-					<button style="background-color: #EEB422; border: none;  font-size: 14px; margin: 8px; cursor: pointer;"><a href="cart.php?&id=<?= $row['id_sp'] ?>" style="text-decoration: none; color: white; ">Mua ngay</a></button>
-					<button style="background-color: #296E01; border: none; font-size: 14px;  margin: 8px;cursor: pointer;"><a href="cart.php?id=<?= $row['id_sp'] ?>" style="text-decoration: none;color: white; ">Thêm Vào Giỏ Hàng</a></button><br />
+					<button style="background-color: #EEB422; border: none;  font-size: 14px; margin: 8px; cursor: pointer;"><a href="addcart.php?&id=<?= $row['id_sp'] ?>" style="text-decoration: none; color: white; ">Mua ngay</a></button>
+					<button style="background-color: #296E01; border: none; font-size: 14px;  margin: 8px;cursor: pointer;"><a href="addcart.php?id=<?= $row['id_sp'] ?>" style="text-decoration: none;color: white; ">Thêm Vào Giỏ Hàng</a></button><br />
 				</td>
 			</tr>
 		</div>
