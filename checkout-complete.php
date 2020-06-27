@@ -12,5 +12,5 @@ foreach ($_SESSION['cart'] as $key => $value) {
 	$phone = $_POST['phone'];
 	$id = $key;
 	$date = date("Y-m-d");
-	$query = $connection->query('INSERT INTO ');
+	$query = $connection->query('INSERT INTO');
 }

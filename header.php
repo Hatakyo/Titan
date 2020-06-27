@@ -84,8 +84,14 @@
 									session_start();
 								}
 								if (isset($_SESSION['isLogin'])) : ?>
-									<li><a href="logout.php"> Xin chào, <?= $_SESSION['username'] ?></a></li>
+								  
+									<li><a href="home.php"> Xin chào, <?= $_SESSION['username'] ?></a></li>
+									<?php if ($_SESSION['type'] == 1) : ?>
+										<li><a href="admin.php"> Admin </a></li> 
+										<?php endif ?>	
 									<li><a href="logout.php" style="color: red;">Đăng xuất</a></li>
+									
+
 								<?php else : ?>
 									<li><a href="login.php">Đăng nhập</a></li>
 									<li><a href="dangki.php">Đăng kí</a></li>

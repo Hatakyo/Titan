@@ -39,7 +39,7 @@ if (isset($_GET['id'])) {
 		<th width="16%">Thành tiền</th>
 		<th>Xóa</th>
 	</tr>
-	<form action="./checkout.php" method="post">
+	<form action="./thanhtoan.php" method="post">
 		<?php foreach ($_SESSION['cart'] as $key => $value) : ?>
 			<tr style="text-align: center;">
 				<td width="23%">

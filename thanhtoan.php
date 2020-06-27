@@ -25,10 +25,11 @@
 <body>
 <h2 style="color:#F00;text-align: center; ">Xác nhận đơn hàng </h2>
  <hr> <!--tao 1 đường kẻ-->
+  <form action="getthanhtoan.php" method="post">
     <table  width="100%" border="0"  >
 	  <th>
 	     <td width="40%">
-        <table width="50%" border="0" form action="checkout-complete.php" method="post" >
+        <table width="50%" border="0"   >
 		   <h2 style="color:#F00;text-align: center">Thông tin khách hàng </h2> 
 		   <tr>
 		   <td width="90%" height="60">
@@ -98,12 +99,11 @@
 		</tr>
 		</table>
 		<a style="padding: 15px 32px;margin-left: 70%; "> Tổng tiền : <a><?= vndFormat($total) ?>
-		
-		
+			
 		<input type="submit" class="button" value="Thanh toán">
   </th>
 </table>
-		
+		</from>
 </body>
 
 </html>
