@@ -9,7 +9,7 @@ if (isset($row)) {
 	$_SESSION['username'] = $row[0];
 	$_SESSION['isLogin'] = 1;
 	$_SESSION['type'] = $row[2];
-	header('Location:./index.php');
+	header('Location:./home.php');
 } else {
 	header('Location:./login.php');
 }
