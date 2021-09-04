@@ -5,43 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Titan</title>
-	<style>
-		a {
-			text-decoration: none;
-		}
 
-		.sp {
-			text-align: center;
-		}
-
-		.tieude {
-
-			font-weight: bold;
-			font-size: 1.5em;
-			color: #F90
-		}
-
-		.xuhuong {
-			float: left;
-			width: 100%;
-			text-align: center;
-		}
-
-		.sp img {
-			transition: all .3s ease-in-out;
-		}
-
-		.sp img:hover {
-			transform: scale(1.2);
-		}
-		.xuhuong img {
-			transition: all .3s ease-in-out;
-		}
-
-		.xuhuong img:hover {
-			transform: scale(1.2);
-		}
-	</style>
 </head>
 
 <body>
@@ -49,18 +13,23 @@
 require_once './mess.php';
 ?>
 	<div id="header"> <?php require_once 'header.php'; ?></div>
-	<div id=" banner">
-		<img src="./img/banner.jpg" width="100%" height="250px">
-	</div>
-	<div id="tienich"> <?php require_once 'tienich.php'; ?></div>
-	<hr>
-	<!--tao 1 đường kẻ-->
-	<br>
-	<!--lenh xuong dong-->
 
-	<div class="tieude">
-		<p style="text-align: center; text-transform: uppercase;"> sản phẩm nổi bật </p>
-	</div>
+	<div class="Sliders">
+        <div class="itemSlider">
+            <img class="img-banner" src="https://wallpaperaccess.com/full/1140732.jpg" alt="pic">
+        </div>
+        <div class="itemSlider Active">
+            <img class="img-banner" src="https://wallpaperaccess.com/full/2741662.jpg" alt="pic">
+        </div>
+        <div class="itemSlider">
+            <img class="img-banner" src="https://wallpaperaccess.com/full/366926.jpg" alt="pic">
+        </div>
+    </div>
+
+
+	<!--lenh xuong dong-->
+<div class="Containers">
+ <h2 class="Content "><span>Sản phẩm nổi bật</span></h4>
 	<br />
 
 	<?php
@@ -72,56 +41,75 @@ require_once './mess.php';
 	$count = 0;
 	$sql = "SELECT * FROM sanpham";
 	$query = $connection->query($sql);
-	echo '<table class="sp">';
-	echo '<tr>';
+	echo ' <div class="scrolly">';
+	echo '<ul class="carouselPre carouselPreS1">';
+	
 	while ($row = $query->fetch_assoc()) : ?>
 		<?php
 		$count++;
-        if ($count <= 5) : ?>
-			<td>
-				<a href="chitietsp.php?id=<?= $row['id_sp'] ?>"><img src="./img/<?= $row['anh'] ?>" alt="" width="229" height="200"></a><br />
-				<a style="margin: 0;"><?= $row['ten'] ?></a><br />
-				<a style="margin: 0;"><?= number_format($row['gia']) ?></a><br />
-				<?php if (isset($_SESSION['isLogin'])) : ?>
-					<button style="background-color: #EEB422; border: none;  font-size: 14px; margin: 8px; cursor: pointer;"><a href="addcart.php?&id=<?= $row['id_sp'] ?>" style="text-decoration: none; color: white; ">Mua ngay</a></button>
-					<button style="background-color: #296E01; border: none; font-size: 14px;  margin: 8px;cursor: pointer;"><a href="addcart.php?id=<?= $row['id_sp'] ?>" style="text-decoration: none;color: white; ">Thêm Vào Giỏ Hàng</a></button><br />
+        if ($count <= 8) : ?>
+		<li class="itemsC itemsS1">
+                    <div class="bgImg"><a href="chitietsp.php?id=<?= $row['id_sp'] ?>"><img src="./img/<?= $row['anh'] ?>" alt="" width="229" height="200"></a></div>
+                        <h3><?= $row['ten'] ?></h3>
+                        <span><?= number_format($row['gia']) ?></span>
+						<br />
+						<div class="btnH">
+						<?php if (isset($_SESSION['isLogin'])) : ?>
 				
+					<button style="background-color: #EEB422; border: none;  font-size: 14px; padding: 8px; cursor: pointer;"><a href="addcart.php?&id=<?= $row['id_sp'] ?>" style="text-decoration: none; color: white; ">Mua ngay</a></button>
+					<button style="background-color: #296E01; border: none; font-size: 14px;  padding: 8px;cursor: pointer;"><a href="addcart.php?id=<?= $row['id_sp'] ?>" style="text-decoration: none;color: white; ">Thêm Vào Giỏ Hàng</a></button><br />
+					
 					<?php else :?>
-						<button style="background-color: #EEB422; border: none;  font-size: 14px; margin: 8px; cursor: pointer;"><a href="login.php" style="text-decoration: none; color: white; ">Mua ngay</a></button>
-					<button style="background-color: #296E01; border: none; font-size: 14px;  margin: 8px;cursor: pointer;"><a href="login.php" style="text-decoration: none;color: white; ">Thêm Vào Giỏ Hàng</a></button><br />
-					<?php endif ?>
-			</td>
+					
+					<button style="background-color: #EEB422; border: none;  font-size: 14px; padding: 8px; cursor: pointer;"><a href="login.php" style="text-decoration: none; color: white; ">Mua ngay</a></button>
+					<button style="background-color: #296E01; border: none; font-size: 14px;  padding: 8px;cursor: pointer;"><a href="login.php" style="text-decoration: none;color: white; ">Thêm Vào Giỏ Hàng</a></button><br />
+					
+					<?php endif ?>     
+					</div>   
+			</li>
+			
 		<?php endif; ?>
 	<?php endwhile; ?>
-	</tr>
-	</table>
+					
+	</ul>
+					<button id="left" class="leftS1"><i class="fas fa-chevron-left"></i></button>
+                   <button id="right" class="rightS1"><i class="fas fa-chevron-right"></i></button>
+					</div>      
+            <div class="more">
+                <a href="sanpham.php">Xem thêm</a>
+            </div>
 
 
-
-	<div class="tieude">
-		<p style="text-align: center; text-transform: uppercase;"> Xu hướng mua hàng</p>
-	</div>
-	<br />
+	<h2 class="Content "><span>Xu hướng hiện nay</span></h4>
 	<br />
 	<?php
 	require_once './connect.php';
 	$sql = "SELECT * FROM danhmuc";
 	$query = $connection->query($sql);
 	?>
-	<table class="xuhuong">
-		<tr>
-			<?php while ($row = $query->fetch_assoc()) : ?>
-				<td>
-					<a href="sanpham.php"><img src="./img/<?= $row['anh'] ?>" alt="" width="229" height="200"></a><br />
+
+     <div class="xuhuong">
+		
+		 <?php while ($row = $query->fetch_assoc()) : ?>	
+			<div class="mainXu">
+					<a href="sanpham.php"><img src="./img/<?= $row['anh'] ?>" alt=""></a><br />
 					<a style="margin: 0;"><?= $row['ten'] ?></a><br />
-					<a style="margin: 0;"><?= $row['mota'] ?></a><br />
-				</td>
+					<a style="margin: 0;"><?= $row['mota'] ?></a><br />	
+		 </div>
 			<?php endwhile; ?>
-		</tr>
-	</table>
+		
+	 </div>
+
 	<br />
-    <br />
-<div id="footer"><?php include("footer.php"); ?></div>
+	<br />
+
+	<div class="lookimg">
+        <img src="./img/gt.png" alt="">
+        <img src="./img/img4.png" alt="">
+     </div>
+	<div id="footer"><?php require_once 'footer.php'; ?></div>
+</div>
+
 <div id="fb-root"></div>
       <script>
         window.fbAsyncInit = function() {
@@ -146,6 +134,8 @@ require_once './mess.php';
   logged_in_greeting="tóm lại có định mua không ? "
   logged_out_greeting="tóm lại có định mua không ? ">
       </div>
+
+	  
 </body>
 
 </html>

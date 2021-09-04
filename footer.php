@@ -1,3 +1,4 @@
+ <script src="./js/main.js"></script>
  <footer style="text-align: center">
  	<br>
  	<!--lenh xuong dong-->
