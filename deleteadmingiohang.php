@@ -5,7 +5,7 @@ if (session_status() == PHP_SESSION_NONE) {
 require_once "./connect.php";
 // $sql = ' UPDATE sanpham  set ten = $_POST['ten']
 
-$sql = ' DELETE FROM sanpham Where id_sp="'.$_GET['id'].'" ; ';
+$sql = ' DELETE FROM thanhtoan Where id="'.$_GET['id'].'" ; ';
  mysqli_query($connection, $sql);
- header('Location:./admin.php');
+ header('Location:./quanlygiohang.php');
 

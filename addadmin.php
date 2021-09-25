@@ -8,11 +8,9 @@
 * {
   box-sizing: border-box;
 }
-
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
-
 /* Style the header */
 header {
   background-color: #666;
@@ -21,7 +19,6 @@ header {
   font-size: 35px;
   color: white;
 }
-
 /* Create two columns/boxes that floats next to each other */
 nav {
   float: left;
@@ -29,13 +26,11 @@ nav {
   height: 300px; /* only for demonstration, should be removed */
   padding: 20px;
 }
-
 /* Style the list inside the menu */
 nav ul {
   list-style-type: none;
   padding: 0;
 }
-
 article {
   float: left;
   padding: 20px;
@@ -60,7 +55,6 @@ section:after {
   display: table;
   clear: both;
 }
-
 /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
 @media (max-width: 100%) {
   nav, article {
@@ -82,14 +76,20 @@ section:after {
   <nav>
     <ul>
     <li><a href="home.php">Trang Chủ</a></li>
-    <li><a href="#"></br></a> </li>
-    <li><a href="admin.php">Tổng quan</a></li>
+      <li><a href="#"></br></a> </li>
+      <li><a href="admin.php">Tổng quan</a></li>
+      <li><a href="#"></br></a> </li>
+      <li><a href="quanlygiohang.php">quản lý giỏ hàng</a></li>
     </ul>
   </nav>  
   <article>
   <form action="getupadd.php" method="post" enctype="multipart/form-data">
   
        <table width="60%" >
+       <tr>
+    <td width="25%" height="50">Type</td>
+    <td width="45"><input type="number" name="type" style="height: 25px;width: 327px; padding: 5px 10px" required></td>
+  </tr>
   <tr>
     <td width="25%" height="50">Tên sản phẩm</td>
     <td width="45"><input type="text" name="ten" style="height: 25px;width: 327px; padding: 5px 10px" required></td>
@@ -100,7 +100,7 @@ section:after {
   </tr>
   <tr>
     <td height="50">Giá</td>
-    <td><input type="text" name="gia" required></td>
+    <td><input type="number" name="gia" required></td>
   </tr>
   <tr>
     <td height="50">Mô tả</td>
@@ -109,12 +109,8 @@ section:after {
   </table>
    
   <a href=""> <input type="submit" value="Lưu" class="luu" ></a>
-
   </form>
   </article>
 </section>
-
-
-
 </body>
 </html>

@@ -2,13 +2,14 @@
 session_start();
 require_once 'connect.php';
 
-$query = $connection->query('SELECT * FROM account WHERE username="' . $_POST['username'] . '" AND password="' . $_POST['pass'] . '" ');
+$query = $connection->query('SELECT * FROM account WHERE  username="' . $_POST['username'] 	. '" AND password="' . $_POST['pass'] . '" ');
 $row = $query->fetch_array(MYSQLI_NUM);
 
 if (isset($row)) {
-	$_SESSION['username'] = $row[0];
+	$_SESSION['username'] = $row[1];
+	$_SESSION['id'] = $row[0];
 	$_SESSION['isLogin'] = 1;
-	$_SESSION['type'] = $row[2];
+	$_SESSION['type'] = $row[3];
 	header('Location:./home.php');
 } else {
 	header('Location:./login.php');

@@ -39,8 +39,17 @@ if (isset($_GET['id'])) {
 		<th width="16%">Thành tiền</th>
 		<th>Xóa</th>
 	</tr>
-	<form action="./thanhtoan.php" method="post">
-		<?php foreach ($_SESSION['cart'] as $key => $value) : ?>
+
+
+	<?php 
+		
+	?>
+	
+	
+		<?php
+		if ( !empty($_SESSION['cart']) && count($_SESSION['cart'])>0) : 
+		 foreach ($_SESSION['cart'] as $key => $value) {?>	
+		 <form action="./thanhtoan.php" method="post">	
 			<tr style="text-align: center;">
 				<td width="23%">
 					<a href="chitietsp.php?id=<?= $key ?>" style="margin: 0;"><?= $value['ten'] ?></a>
@@ -49,41 +58,49 @@ if (isset($_GET['id'])) {
 					<img src="./img/<?= $value['anh'] ?>" alt="" width="229" height="200">
 				</td>
 				<td width="14%">
-					<a style="margin: 0;" class="cost"><?= number_format($value['gia']) . 'VNĐ' ?></a>
+					<a style="margin: 0;" class="cost_<?php echo $key; ?>"><?= $value['gia'] ?></a>
 				</td>
 				<td width="14%">
-					<input class="quantity" type="number" value="1" onclick="sum()" style="height: 25px; width: 90px;">
+					<input class="quantity_<?= $key ?>" type="number" name="<?= $key ?>[soluong]" id="soluong" value="1" onclick="sum(<?= $key ?>)" style="height: 25px; width: 90px;">			
 				</td>
 				<td width="14%">
-					<a style="margin: 0;" class="sum"><?= number_format($value['gia']) . 'VNĐ' ?></a>
+				 	<input class="sum_<?php echo $key; ?>"  type="text" name="<?= $key ?>[tongtien]" id="tongtien" value="<?= $value['gia'] ?>" style="border: none;">	
+				
 				</td>
 				<td width="14%">
 					<a href="updateCart.php?id=<?= $key ?>" style="margin: 0;">X</a>
 				</td>
 			</tr>
-		<?php endforeach;  ?>
+		<?php } endif;  ?>
+		
 </table>
 <hr>
 <!--tao 1 đường kẻ-->
 <br>
 <input type="submit" name="btUpdate" value="Thanh toán" style="margin-left: 90%; margin-top: 10px; height: 40px; width: 90px; font-weight: bold; border: 1px solid black; border-radius: 5px;">
+
+</form>
+
+
+
+
 <script>
-	function sum() {
-		var cost = document.querySelector('.cost').innerText;
+	function sum(key) {
+		var cost = document.querySelector(`.cost_${key}`).innerText;
 		cost = cost.replace(',', '');
 		cost = cost.replace(',', '');
 		cost = cost.replace('VNĐ', '');
 		cost = Number(cost);
-		var quantity = document.querySelector('.quantity').value;
+		var quantity = document.querySelector(`.quantity_${key}`).value;
 		var sum = cost * quantity;
-		sum = sum.toLocaleString('vi', {
-			style: 'currency',
-			currency: 'VND'
-		});
-		document.querySelector('.sum').innerHTML = sum;
+		// sum = sum.toLocaleString('vi', {
+		// 	style: 'currency',
+		// 	currency: 'VND'
+		// });
+		document.querySelector(`.sum_${key}`).value = sum;
+		
 	}
 </script>
-</form>
 </body>
 
 </html>

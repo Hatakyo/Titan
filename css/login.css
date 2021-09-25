@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+:root {
+    --black: #4f4f4f;
+    --blue: #6E79AF;
+    --blue-dark: #43425D;
+    --blue-background: #E5E8EF;
+    --green: #94D6A3;
+    --red: #DD3333;
+    --orange: #F67326;
+    --gray: #787878;
+    --background: #F6F7FA;
+    --border-color: #f2f2f2;
+    --border: thin solid var(--border-color);
+    --hover: #F6F6F6;
+    --text-selected: #2B366A;
+    --shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    --font: 'Nunito', sans-serif;
+    --label-color: #AFB3B3;
+}
+
+*:focus {
+    outline: none;
+}
+
+input,
+button,
+select,
+textarea,
+li {
+    font-family: var(--font);
+    list-style: none;
+}
+
+image {
+    object-fit: cover;
+}
+
+p,
+span {
+    text-align: justify;
+}
+
+body {
+    font: 16px/1.618 var(--font);
+    color: var(--black);
+    background-color: var(--background);
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    height: 80%;
+    width: 90%;
+    margin: 10px auto;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+.main-login {
+    background-color: white;
+    width: 100%;
+    height: 80vh;
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+}
+
+.main-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #F4F6F8;
+    margin: auto;
+}
+
+.imgs {
+    width: 85%;
+}
+
+.main-text p {
+    color: var(--blue);
+    text-align: center;
+    Font-size: 24px;
+    margin-top: 60px;
+}
+
+.main-logo {
+    width: 100%;
+    text-align: center;
+}
+
+.logo {
+    width: 45%;
+}
+
+.Dn {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 60px;
+}
+
+.login {
+    width: 85%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.mk {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-field {
+    width: 100%;
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.remember-password {
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: normal;
+    color: var(--gray);
+}
+
+.submit-btn {
+    border: none;
+    background-color: #6E79AF;
+    color: white;
+    width: 100%;
+    padding: 15px 0;
+    border-radius: .8rem;
+    margin-top: 50px;
+    outline: none;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.forgot-password {
+    text-align: center;
+    display: block;
+    margin-top: 20px;
+}
+
+
+/*------------------------------------*\
+	# Input Animation 
+\*------------------------------------*/
+
+.input {
+    width: 100%;
+    height: 50px;
+    line-height: initial;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input input {
+    width: 100%;
+    height: 100%;
+    color: var(--black);
+    padding-top: 8px;
+    border: none;
+    outline: none;
+}
+
+.input label {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    pointer-events: none;
+    color: var(--label-color);
+    border-bottom: 1px solid var(--label-color);
+}
+
+.input label::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    bottom: -1px;
+    border-bottom: 3px solid var(--blue);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.content-name {
+    position: absolute;
+    left: 0px;
+    bottom: 5px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.input input:focus+.label-name .content-name,
+.input input:valid+.label-name .content-name {
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: var(--blue);
+}
+
+.input input:focus+.label-name::after,
+.input input:valid+.label-name::after {
+    transform: translateX(0%);
+}
+
+@media only screen and (max-width: 1000px) {
+    .main {
+        width: 100vw;
+        box-shadow: initial;
+        border-radius: 0;
+        margin: 0px;
+        height: 100vh;
+    }
+    .main-login {
+        height: 100vh;
+    }
+}
+
+@media only screen and (max-width: 995px) {
+    .main {
+        width: 100vw;
+        box-shadow: initial;
+        border-radius: 0;
+        margin: 0px;
+        height: 100vh;
+        display: initial;
+        background-color: var(--background);
+    }
+    .submit-btn {
+        border-radius: 10rem;
+    }
+    .main-login {
+        background-color: var(--background);
+    }
+    .input input {
+        background-color: transparent;
+    }
+    .main-img {
+        display: none;
+    }
+    .main-logo {
+        display: grid;
+        place-items: center;
+    }
+}

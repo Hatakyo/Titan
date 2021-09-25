@@ -39,13 +39,16 @@ require_once './mess.php';
 	require_once './connect.php';
 	
 	$count = 0;
-	$sql = "SELECT * FROM sanpham";
+	$sql = "SELECT * FROM sanpham where type = '0'";
 	$query = $connection->query($sql);
+	
 	echo ' <div class="scrolly">';
 	echo '<ul class="carouselPre carouselPreS1">';
 	
 	while ($row = $query->fetch_assoc()) : ?>
+	
 		<?php
+		
 		$count++;
         if ($count <= 8) : ?>
 		<li class="itemsC itemsS1">
@@ -56,7 +59,7 @@ require_once './mess.php';
 						<div class="btnH">
 						<?php if (isset($_SESSION['isLogin'])) : ?>
 				
-					<button style="background-color: #EEB422; border: none;  font-size: 14px; padding: 8px; cursor: pointer;"><a href="addcart.php?&id=<?= $row['id_sp'] ?>" style="text-decoration: none; color: white; ">Mua ngay</a></button>
+					<button style="background-color: #EEB422; border: none;  font-size: 14px; padding: 8px; cursor: pointer;"><a href="buyNowCart.php?&id=<?= $row['id_sp'] ?>" style="text-decoration: none; color: white; ">Mua ngay</a></button>
 					<button style="background-color: #296E01; border: none; font-size: 14px;  padding: 8px;cursor: pointer;"><a href="addcart.php?id=<?= $row['id_sp'] ?>" style="text-decoration: none;color: white; ">Thêm Vào Giỏ Hàng</a></button><br />
 					
 					<?php else :?>
@@ -79,6 +82,59 @@ require_once './mess.php';
                 <a href="sanpham.php">Xem thêm</a>
             </div>
 
+
+	<h2 class="Content "><span>Phụ kiện hot</span></h4>
+	<br />
+
+	<?php
+    if (session_status() == PHP_SESSION_NONE) {
+		session_start();
+	}
+	require_once './connect.php';
+	
+	$count = 0;
+	$sql = "SELECT * FROM sanpham where type = '1'";
+	$query = $connection->query($sql);
+	
+	echo ' <div class="scrolly">';
+	echo '<ul class="carouselPre carouselPreS2">';
+	
+	while ($row = $query->fetch_assoc()) : ?>
+	
+		<?php
+		
+		$count++;
+        if ($count <= 6) : ?>
+		<li class="itemsC itemsS2">
+                    <div class="bgImg"><a href="chitietsp.php?id=<?= $row['id_sp'] ?>"><img src="./img/<?= $row['anh'] ?>" alt="" width="229" height="200"></a></div>
+                        <h4><?= $row['ten'] ?></h3>
+                        <span><?= number_format($row['gia']) ?></span>
+						<br />
+						<div class="btnH">
+						<?php if (isset($_SESSION['isLogin'])) : ?>
+				
+					<button style="background-color: #EEB422; border: none;  font-size: 14px; padding: 8px; cursor: pointer;"><a href="addcart.php?&id=<?= $row['id_sp'] ?>" style="text-decoration: none; color: white; ">Mua ngay</a></button>
+					<button style="background-color: #296E01; border: none; font-size: 14px;  padding: 8px;cursor: pointer;"><a href="addcart.php?id=<?= $row['id_sp'] ?>" style="text-decoration: none;color: white; ">Thêm Vào Giỏ Hàng</a></button><br />
+					
+					<?php else :?>
+					
+					<button style="background-color: #EEB422; border: none;  font-size: 14px; padding: 8px; cursor: pointer;"><a href="login.php" style="text-decoration: none; color: white; ">Mua ngay</a></button>
+					<button style="background-color: #296E01; border: none; font-size: 14px;  padding: 8px;cursor: pointer;"><a href="login.php" style="text-decoration: none;color: white; ">Thêm Vào Giỏ Hàng</a></button><br />
+					
+					<?php endif ?>     
+					</div>   
+			</li>
+			
+		<?php endif; ?>
+	<?php endwhile; ?>
+					
+	</ul>
+					<button id="left" class="leftS2"><i class="fas fa-chevron-left"></i></button>
+                   <button id="right" class="rightS2"><i class="fas fa-chevron-right"></i></button>
+					</div>      
+            <div class="more">
+                <a href="phukien.php">Xem thêm</a>
+            </div>
 
 	<h2 class="Content "><span>Xu hướng hiện nay</span></h4>
 	<br />
@@ -135,7 +191,39 @@ require_once './mess.php';
   logged_out_greeting="tóm lại có định mua không ? ">
       </div>
 
-	  
+	  <script>
+		  let nextS2 = document.querySelector('.leftS2');
+let preS2 = document.querySelector('.rightS2');
+let carouselSlideS2 = document.querySelector('.carouselPreS2');
+let carouselS2 = document.querySelectorAll('.itemsS2');
+let counters2 = 0;
+const sizeS2 = carouselS2[0].clientWidth + 20;
+
+function renderSlides2() {
+    carouselSlideS2.style.transform = 'translateX(' + (-sizeS2 * counters2) + 'px)';
+    carouselSlideS2.style.transition = "transform .75s ease";
+    if (counters2 === 0) {
+        preS2.style.display = 'none';
+    } else {
+        preS2.style.display = 'block';
+    }
+    if (counters2 === (carouselS2.length - 4)) {
+        nextS2.style.display = 'none';
+    } else {
+        nextS2.style.display = 'block';
+    }
+
+}
+nextS2.addEventListener('click', function() {
+    ++counters2;
+    renderSlides2();
+    preS2.style.opacity = '2'
+});
+preS2.addEventListener('click', function() {
+    --counters2;
+    renderSlides2();
+});
+	  </script>
 </body>
 
 </html>

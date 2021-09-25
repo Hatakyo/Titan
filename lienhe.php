@@ -26,19 +26,19 @@
 				</table>
 			</td>
 			<td width="40%">
-				<table width="100%" border="0">
+				<table width="90%" border="0" style="margin: auto">
 					<tr>
 						<td width="100%">Tên : <br />
-							<input type="text" style="height: 25px;width: 500px;border-style: solid; padding: 5px 10px" /></td>
+							<input type="text" style="height: 25px;width: 80%;border-style: solid; padding: 5px 10px" /></td>
 					</tr>
 					<tr>
-						<td>Email : <br /><input type="text" style="height: 25px;width: 500px;border-style: solid; padding: 5px 10px"></td>
+						<td>Email : <br /><input type="text" style="height: 25px;width: 80%;border-style: solid; padding: 5px 10px"></td>
 					</tr>
 					<tr>
-						<td>Điện thoại : <br /><input type="text" style="height: 25px;width: 500px;border-style: solid; padding: 5px 10px"></td>
+						<td>Điện thoại : <br /><input type="text" style="height: 25px;width: 80%;border-style: solid; padding: 5px 10px"></td>
 					</tr>
 					<tr>
-						<td>Tin nhắn : <br /><textarea type="text" style="height: 100px;width: 500px;border-style: solid; padding: 5px 10px"> </textarea> </td>
+						<td>Tin nhắn : <br /><textarea type="text" style="height: 100px;width: 80%;border-style: solid; padding: 5px 10px"> </textarea> </td>
 					</tr>
 					<tr>
 						<td style="padding: 10px 20px; font-size: 30px;"><a><input type="submit" value="Gửi"></a></td>
@@ -47,7 +47,7 @@
 			</td>
 		</tr>
 	</table>
-	<div id="footer"><?php require_once 'footer.php'; ?></div>
+
 </body>
 
 </html>

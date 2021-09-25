@@ -111,52 +111,60 @@ section:after {
         <table width="100%" border = "1" >
         <tr style=" text-align: center; ">
         <td  width="10%" >id_sp </td>
-		    <td width="15%" >Tên </td>
-		    <td width="10%" >Hình ảnh </td>
-		    <td width="15%">Giá </td>
-		    <td width="45%">Mô tả </td>
-        <td width="10%"><a href="addadmin.php"> <input class="button" type="submit" value="Thêm"></a> </td>
+		    <td width="15%" >Tên người đặt hàng </td>
+		    <td width="10%" >địa chỉ </td>
+		    <td width="15%">số điện thoại </td>
+		    <td width="10%">loại thanh toán </td>
+            <td width="10%" >tên sản phẩm </td>
+		    <td width="15%">số lượng </td>
+		    <td width="10%">thành tiền </td>
+        <td width="10%"> </td>
         </tr> 
        
         <form action="" method="post">
         <?php
         require_once "./connect.php";
-		$sql = "SELECT * FROM sanpham";
+		$sql = "SELECT * FROM thanhtoan";
 		$query = $connection->query($sql);
 		while($row = $query->fetch_assoc())  :?>
           <div class="nav">
             <tr style=" text-align: center;">
             <td width=10% >
-            <a><?= $row['id_sp']?> </a> <br />
+            <a><?= $row['id']?> </a> <br />
             </td>
             <td width=15%>
-            <a ><?= $row['ten'] ?></a><br />
+            <a ><?= $row['hovaten'] ?></a><br />
             </td>
 			      <td width=10%>
-		       	<a ><img src="./img/<?= $row['anh'] ?>"alt="" width="229" height="200"> </a><br />
+                  <a ><?= $row['diachi'] ?></a><br />
 		      	</td>
             <td width=15%>
-            <a ><?= number_format( $row['gia']) ?> VNĐ  </a><br />
-            </td>
-            <td width=45%>
-		      	<a > <?= $row['mota']?> </a> <br />
+            <a ><?= $row['sodt'] ?></a><br />
             </td>
             <td width=10%>
-              <div class="btnChange">
-              <a class="deleteBtn" href="./deleteadmin.php?id=<?= $row['id_sp']?>"> Xóa </a>
-            <a class="editBtn" href="./editadmin.php?id=<?= $row['id_sp']?>">Sửa</a>
-            </div>
+		      	<a > <?= $row['loaithanhtoan']?> </a> <br />
+            </td>
+            </td>
+			      <td width=10%>
+                  <a ><?= $row['tên_sp'] ?></a><br />
+		      	</td>
+            <td width=15%>
+            <a ><?= $row['soluong'] ?></a><br />
+            </td>
+            <td width=10%>
+            <a ><?= number_format( $row['tongtien']) ?> VNĐ  </a><br />
+            </td>
+            <td width=10%>
+            <div class="btnChange">
+            <a  class="deleteBtn" href="./deleteadmingiohang.php?id=<?= $row['id']?>"> Xóa </a>
+            <a class="editBtn" href="./editadmingiohang.php?id=<?= $row['id']?>">Sửa</a>
+        </div>
             </td>
             </tr>
           </div>
           <?php endwhile; ?>
-        </table>    
-        
+        </table>          
         </form >
-
-        
-        
-
           </article>
 </section>
 

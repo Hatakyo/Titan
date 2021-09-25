@@ -24,10 +24,6 @@
 .productImg img {
     width: 100%;
 }
-.sreach{
-	width: 20%;
-	margin: auto;
-}
 	</style>
 </head>
 
@@ -39,15 +35,14 @@
 	<hr>
 	<!--tao 1 đường kẻ-->
 	<br>
-	<!-- <h2 class="Content "><span>Sản phẩm</span></h4> -->
-<div class="product">
-		
+	<!--lenh xuong dong-->
+	<div class="product">
 	<?php
 	if (session_status() == PHP_SESSION_NONE) {
 		session_start();
 	}
 	require_once './connect.php';
-	$sql = "SELECT * FROM sanpham";
+	$sql = "SELECT * FROM sanpham where type = '0'";
 	$query = $connection->query($sql);
 
 	while ($row = $query->fetch_assoc()) : ?>
@@ -61,15 +56,15 @@
 					<a style="margin: 0;"><?= number_format($row['gia']) ?>VNĐ</a><br />
 					<?php if (isset($_SESSION['isLogin'])) : ?>
 				
-				<button style="background-color: #EEB422; border: none;  font-size: 14px; padding: 8px; cursor: pointer;"><a href="buyNowCart.php?&id=<?= $row['id_sp'] ?>" style="text-decoration: none; color: white; ">Mua ngay</a></button>
-				<button style="background-color: #296E01; border: none; font-size: 14px;  padding: 8px;cursor: pointer;"><a href="addcart.php?id=<?= $row['id_sp'] ?>" style="text-decoration: none;color: white; ">Thêm Vào Giỏ Hàng</a></button><br />
-				
-				<?php else :?>
-				
-				<button style="background-color: #EEB422; border: none;  font-size: 14px; padding: 8px; cursor: pointer;"><a href="login.php" style="text-decoration: none; color: white; ">Mua ngay</a></button>
-				<button style="background-color: #296E01; border: none; font-size: 14px;  padding: 8px;cursor: pointer;"><a href="login.php" style="text-decoration: none;color: white; ">Thêm Vào Giỏ Hàng</a></button><br />
-				
-				<?php endif ?>  
+                <button style="background-color: #EEB422; border: none;  font-size: 14px; padding: 8px; cursor: pointer;"><a href="buyNowCart.php?&id=<?= $row['id_sp'] ?>" style="text-decoration: none; color: white; ">Mua ngay</a></button>
+                <button style="background-color: #296E01; border: none; font-size: 14px;  padding: 8px;cursor: pointer;"><a href="addcart.php?id=<?= $row['id_sp'] ?>" style="text-decoration: none;color: white; ">Thêm Vào Giỏ Hàng</a></button><br />
+                
+                <?php else :?>
+                
+                <button style="background-color: #EEB422; border: none;  font-size: 14px; padding: 8px; cursor: pointer;"><a href="login.php" style="text-decoration: none; color: white; ">Mua ngay</a></button>
+                <button style="background-color: #296E01; border: none; font-size: 14px;  padding: 8px;cursor: pointer;"><a href="login.php" style="text-decoration: none;color: white; ">Thêm Vào Giỏ Hàng</a></button><br />
+                
+                <?php endif ?>  
 				  </div>
 			  </div>
                    

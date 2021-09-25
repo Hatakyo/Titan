@@ -3,38 +3,35 @@ if (session_status() == PHP_SESSION_NONE) {
 	session_start();
 }
 require_once './connect.php';
-// echo '<pre>' ;
-// print_r($_SESSION);
-// echo '</pre>';
-// echo '<pre>' ;
-// print_r($_POST);
-// echo '</pre>';
-
+echo '<pre>' ;
+print_r($_SESSION);
+echo '</pre>';
+echo '<pre>' ;
+print_r($_POST);
+echo '</pre>';
+// die('aaaaaaaa');
+$acc_id = $_SESSION['id'];
 $username = $_SESSION['username'];
 $tenkh = $_POST['name'];
 $diachi = $_POST['city'];
 $sodt = $_POST['phone'];
 $donhang ="";
- 
-// echo $username;
-// echo $tenkh;
-// echo $diachi;
-// echo $sodt;
-// echo $donhang;
+$format = $_POST['format'];
 
-foreach($_SESSION['cart'] as $key => $value)
+
+echo $username;
+echo $tenkh;
+echo $diachi;
+echo $sodt;
+echo $format;
+echo $donhang;
+
+$data = $_POST;
+foreach($data['sp'] as $key => $value)
 {
-   $donhang .= $value['ten'] . " ";
-
-
-    // $sanpham = $connect ->('SELECT * FROM '.$value['sp'].'WHERE id_sp="'.$value['$id'].'"   ');
-    // $donhang .= $sanpham[0]['ten']. " | ";
-    // echo 'INSERT INTO khachhang VALUES ("'.$username.'","'.$tenkh.'","'.$diachi.'","'.$sodt.'","'.$donhang.'");';
-// $database ->inserData('INSERT INTO khachhang VALUES ("'.$username.'","'.$tenkh.'","'.$diachi.'","'.$sodt.'","'.$donhang.'");');
+   $sql = 'INSERT INTO thanhtoan  values ("","'.$acc_id.'","'.$value['id'].'","'.$tenkh.'","'.$diachi.'","'.$sodt.'","'.$format.'","'.$value['ten'].'","'.$value['soluong'].'","'.$value['tongtien'].'");';
+   mysqli_query($connection, $sql);
 }
 
-$sql = 'INSERT INTO khachhang  values ("'.$username.'","'.$tenkh.'","'.$diachi.'","'.$sodt.'","'.$donhang.'");';
-echo $sql;
-mysqli_query($connection, $sql);
 unset($_SESSION['cart']);
 header('Location:./home.php');

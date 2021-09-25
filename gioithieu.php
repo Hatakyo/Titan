@@ -35,7 +35,7 @@
 		<p style="margin: 10px;">Với phương trâm "Vui lòng người nhận, đẹp lòng người trao". Quý khách sẽ yên tâm và hài lòng mỗi khi sử dụng dịch vụ của TITAN.</p>
 		<p style="margin: 10px;">Hãy truy cập vào website hoặc gọi đến số điện thoại 0123456789 để được tư vấn miễn phí.</p>
 	</div>
-	<?php require_once 'footer.php' ?>
+	
 </body>
 
 </html>

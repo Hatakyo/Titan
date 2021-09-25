@@ -34,6 +34,7 @@
 			foreach ($_SESSION['cart'] as $value) {
 				echo $value['ten'] . '<br />';
 				echo vndFormat($value['gia']) . '<br />';
+				
 				$total += $value['gia'];
 			}
 			echo '</div>';

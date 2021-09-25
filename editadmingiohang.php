@@ -91,50 +91,57 @@ section:after {
   <article>
     <?php
     require_once "./connect.php";
-    $sql = 'SELECT * FROM sanpham WHERE  id_sp="' . $_GET['id'] 	. '" ';
+    $sql = 'SELECT * FROM thanhtoan WHERE  id="' . $_GET['id'] 	. '" ';
     $result = $connection->query($sql);
     if ($result->num_rows > 0) {
       // output data of each row
       $data = $result->fetch_assoc();
-      
     } else {
       echo "0 results";
     }
 
  
     ?>
-  <form action="getupedit.php"  method="post" enctype="multipart/form-data">
+  <form action="getupeditgiohang.php"  method="post" enctype="multipart/form-data">
   
     <table width="60%" >
-    <tr>
-    <td width="25%" height="50">id sản phẩm</td>
-    <td width="45"><input type="text" name="id_sp" style="height: 25px;width: 327px; padding: 5px 10px" required value="<?php echo $data['id_sp']?>"></td>
+    <tr>  
+    <td width="45"><input type="hidden" name="id" style="height: 25px;width: 327px; padding: 5px 10px" required value="<?php echo $data['id']?>"></td>
+    <td width="45"><input type="hidden" name="acc_id" style="height: 25px;width: 327px; padding: 5px 10px" required value="<?php echo $data['acc_id']?>"></td>
   </tr>
   <tr>
-    <td width="25%" height="50">Type</td>
-    <td width="45"><input type="number" name="type" style="height: 25px;width: 327px; padding: 5px 10px" required value="<?php echo $data['type']?>"></td>
+    <td width="25%" height="50">họ và tên</td>
+    <td width="45"><input type="text" name="hovaten" style="height: 25px;width: 327px; padding: 5px 10px" required value="<?php echo $data['hovaten']?>"></td>
   </tr>
   <tr>
-    <td height="50">Tên sản phẩm</td>
+    <td height="50">Địa chỉ</td>
 
-    <td><input type="text" name="ten" style="height: 25px;width: 327px; padding: 5px 10px" required value="<?php echo $data['ten']?>"></td>
+    <td><input type="text" name="diachi" style="height: 25px;width: 327px; padding: 5px 10px" required value="<?php echo $data['diachi']?>"></td>
   </tr>
   <tr>
-    <td height="50">Hình ảnh</td>
+    <td height="50">số điện thoại</td>
 
-
- <td>
-   <p><?php echo $data['anh']?></p>
-   <input type="file" name="anh" style="height: 25px;width: 327px; padding: 5px 10px" required value="<?php echo $data['anh']?>">
-  </td>
+    <td><input type="number" name="sodt" style="height: 25px;width: 327px; padding: 5px 10px" required value="<?php echo $data['sodt']?>"></td>
   </tr>
   <tr>
-    <td height="50">Giá</td>
-    <td><input type="number" name="gia" style="height: 25px;width: 327px; padding: 5px 10px"required value="<?php echo $data['gia']?>"></td>
+    <td height="50">loại thanh toán</td>
+    <td><input type="text" name="loaithanhtoan" style="height: 25px;width: 327px; padding: 5px 10px"required value="<?php echo $data['loaithanhtoan']?>"></td>
   </tr>
   <tr>
-    <td height="50">Mô tả</td>
-    <td><textarea type="text"  name="mota"  style="height: 100px;width: 327px; padding: 5px 10px" required > <?php echo $data['mota']?></textarea></td>
+    <td height="50">tên sản phẩm</td>
+    <td><input type="text" name="tên_sp" style="height: 25px;width: 327px; padding: 5px 10px" required value="<?php echo $data['tên_sp']?>"></td>
+  </tr>
+  <tr>
+    <td width="25%" height="50">id loại sản phẩm</td>
+    <td width="45"><input type="text" name="sp_id" style="height: 25px;width: 327px; padding: 5px 10px" required value="<?php echo $data['sp_id']?>"></td>
+  </tr>
+  <tr>
+    <td height="50">số lượng</td>
+    <td><input type="number" name="soluong" style="height: 25px;width: 327px; padding: 5px 10px" required value="<?php echo $data['soluong']?>"></td>
+  </tr>
+  <tr>
+    <td height="50">tổng tiền</td>
+    <td><input type="number" name="tongtien" style="height: 25px;width: 327px; padding: 5px 10px" required value="<?php echo $data['tongtien']?>"></td>
   </tr>
   </table>
    

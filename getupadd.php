@@ -9,8 +9,7 @@ if ($file['name'] !== null) {
     $path = './img/'  . $file['name'];
     move_uploaded_file($fileName, $path);
 }
-$sql = 'INSERT INTO sanpham  values ("","'.$_POST['ten'].'","'.$file['name'].'","'.$_POST['gia'][0].'","'.$_POST['mota'].'");';
+$sql = 'INSERT INTO sanpham  values ("","'.$_POST['type'].'","'.$_POST['ten'].'","'.$file['name'].'","'.$_POST['gia'][0].'","'.$_POST['mota'].'");';
 echo $sql;
 mysqli_query($connection, $sql);
 header('Location:./admin.php');
-

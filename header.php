@@ -6,77 +6,35 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-	<!-- <style>
-		div {
-			background-color: white;
-		}
-
-		html {
-			font-family: 'Montserrat', 'Open Sans', sans-serif;
-		}
-
-		.menu a {
-			text-decoration: none;
-			color: black;
-			font-size: 15px;
-			padding: 18px;
-			display: inline-block;
-			margin-right: 50px;
-			line-height: 1px;
-		}
-
-		ul {
-			display: inline;
-			margin: 0;
-			padding: 0;
-		}
-
-		ul li {
-			display: inline-block;
-		}
-
-		ul li:hover {
-			background: white;
-		}
-
-		ul li:hover ul {
-			display: block;
-		}
-
-		ul li ul {
-			position: absolute;
-			width: 18%;
-			display: none;
-			text-align: left;
-		}
-
-		ul li ul li {
-			background: white;
-			display: block;
-		}
-
-		ul li ul li a {
-			display: block !important;
-		}
-
-		ul li ul li:hover {
-			background: white;
-		}
-	</style> -->
+	<style>
+		.productHide:hover .productAll {
+    opacity: 1;
+}
+	.nav-text ul li ul {
+    display: block !important;
+    z-index: 99;
+    opacity: 0;
+    position: absolute !important;
+    top: 70px;
+    background-color: #FFF;
+    width: 120px;
+    text-align: center;
+}
+.nav-text ul li ul li {
+    position: relative;
+    height: 40px !important;
+}
+	</style>
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
+
 	<!-- <div class="menu">
 		<table width="100%" border="0">
 			<tr>
-				<th width="20%"><a href="home.php"><img src="./img/logo.png" width="220px" height="80px"> </a> </th>
-				<th width="15%"><a href="home.php">trang chủ </a> </th>
-				<th width="15%"><a href="sanpham.php">sản phẩm </a> </th>
-				<th width="15%"><a href="gioithieu.php">giới thiệu</a> </th>
-				<th width="12%"><a href="lienhe.php">liên hệ</a> </th>
-				<th width="10%">
+			
 					<ul>
 						<li>
 							<a href="#"><img src="./img/icon.png" width="30px" height="30px"></a>
@@ -98,17 +56,10 @@
 									<li><a href="login.php">Đăng nhập</a></li>
 									<li><a href="dangki.php">Đăng kí</a></li>
 								<?php endif ?>
-							</ul>
-						</li>
-					</ul>
-				</th>
-				<th width="10%"><a href="./cart.php"><img src="./img/giohang.jpg" width="30px" height="30px"></a></th>
+						
 			</tr>
 		</table>
 	</div> -->
-
-
-
 
 
 	<nav class="nav">
@@ -122,10 +73,22 @@
                         <span>Trang chủ</span>
                     </a>
                 </li>
-                <li>
-                    <a href="sanpham.php">
+                <li class="productHide">
+                    <a >
                         <span>Sản phẩm</span>
                     </a>
+					<ul class="productAll">
+						<li><a href="sanpham.php">
+                        <span>Tất cả sản phẩm</span>
+                    </a></li>
+					<li><a href="sanphammohinh.php">
+                        <span>Mô hình</span>
+                    </a></li>
+					<li><a href="phukien.php">
+                        <span>Phụ kiện</span>
+                    </a></li>
+					
+								</ul>
                 </li>
                 <li>
                     <a href="gioithieu.php">
@@ -142,6 +105,17 @@
         </div>
         <div class="nav-icon">
             <ul>
+			<li>
+                    <a>
+                        <form action ="./timkiem.php" class="search-box" method="post">
+                            <input type="text" name="timkiem" value="" placeholder="Tìm Kiếm">
+
+                            <button class="search-button" type="button" name="Tìm Kiếm">
+                            <i class="fal fa-search" aria-hidden="true"></i>  
+                        </button>
+                        </form>
+                    </a>
+                </li>
                 <li class="userShow">
                     <a >
                         <i class="fas fa-user"></i>
