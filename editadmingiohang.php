@@ -68,6 +68,23 @@ section:after {
     height: auto;
   }
 }
+body{
+  background: #3333330d;
+}
+form{
+    padding: 12px;
+    border: 1px solid;
+    border-radius: 10px;
+    background: #fff;
+    margin-bottom: 20px ;
+}
+nav{
+    border: 1px solid;
+    border-radius: 10px;
+    background: #fff;
+    margin: 22px 0;
+    
+}
 </style>
 </head>
 <body>
@@ -79,15 +96,7 @@ section:after {
 
 <section>
 
-  <nav>
-    <ul>
-    <li><a href="home.php">Trang Chủ</a></li>
-      <li><a href="#"></br></a> </li>
-      <li><a href="admin.php">Tổng quan</a></li>
-      <li><a href="#"></br></a> </li>
-      <li><a href="quanlygiohang.php">quản lý giỏ hàng</a></li>
-    </ul>
-  </nav>  
+<?php require_once 'navadmin.php'; ?> 
   <article>
     <?php
     require_once "./connect.php";

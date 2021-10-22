@@ -79,7 +79,7 @@ section:after {
 .btnChange{
     width: 100%;
     height: 100%;
-    display: flex
+    display: flex;
 }
 /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
 @media (max-width: 100%) {
@@ -114,41 +114,33 @@ table{
 
         <table width="100%" border = "1" >
         <tr style=" text-align: center; ">
-        <td  width="10%" >id_sp </td>
-		    <td width="15%" >Tên </td>
-		    <td width="10%" >Hình ảnh </td>
-		    <td width="15%">Giá </td>
-		    <td width="45%">Mô tả </td>
-        <td width="10%"><a href="addadmin.php"> <input class="button" type="submit" value="Thêm"></a> </td>
+        <td  width="10%" >id</td>
+        <td  width="%" >username </td>
+		    <td width="%" >Password </td>
+        <td width="10%"></td>
         </tr> 
        
         <form action="" method="post">
         <?php
         require_once "./connect.php";
-		$sql = "SELECT * FROM sanpham";
+		$sql = "SELECT * FROM account";
 		$query = $connection->query($sql);
 		while($row = $query->fetch_assoc())  :?>
-          <div class="nav">
+            <div class="nav">
             <tr style=" text-align: center;">
             <td width=10% >
-            <a><?= $row['id_sp']?> </a> <br />
+            <a><?= $row['id']?> </a> <br />
             </td>
-            <td width=15%>
-            <a ><?= $row['ten'] ?></a><br />
+            <td >
+            <a><?= $row['username']?> </a> <br />
             </td>
-			      <td width=10%>
-		       	<a ><img src="./img/<?= $row['anh'] ?>"alt="" width="229" height="200"> </a><br />
-		      	</td>
-            <td width=15%>
-            <a ><?= number_format( $row['gia']) ?> VNĐ  </a><br />
+            <td >
+            <a ><?= $row['password'] ?></a><br />
             </td>
-            <td width=45%>
-		      	<a > <?= $row['mota']?> </a> <br />
-            </td>
+			      
             <td width=10%>
               <div class="btnChange">
-              <a class="deleteBtn" href="./deleteadmin.php?id=<?= $row['id_sp']?>"> Xóa </a>
-            <a class="editBtn" href="./editadmin.php?id=<?= $row['id_sp']?>">Sửa</a>
+              <a class="deleteBtn" href="./deleteadminkh.php?id=<?= $row['id']?>"> Xóa </a>
             </div>
             </td>
             </tr>

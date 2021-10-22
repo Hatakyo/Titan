@@ -103,7 +103,7 @@
 				echo '<td width="24%">';
 				echo '<input  type="hidden" name="sp['.  $key .'][id]" value="'.$key .'" style="border: none;">';
 				echo '<input  type="text" name="sp['.  $key .'][ten]" id="ten" value="'.$value['ten'] .'" style="border: none;">';
-				echo $value['ten'] . '<br />';
+				// echo $value['ten'] . '<br />';
 				echo '</td>';
 				echo '<td width="26%">';
 				echo '<img src="./img/'.$value['anh'].'" alt="" width="200" height="150" >' . '<br />';

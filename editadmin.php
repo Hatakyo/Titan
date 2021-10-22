@@ -60,13 +60,94 @@ section:after {
   display: table;
   clear: both;
 }
+.up_contract {
+            width: 250px;
+            height: 200px;
+            background-color: #FFFFFF;
+            box-shadow: 0px 2px 10px 0px #D3D3D3;
+            border-radius: 10px;
+            position: relative;
 
+        }
+        
+        .klot {
+                position: relative;
+                text-align: center;
+                width: 55%;
+                height: 100%;
+          
+            }
+            .klot img {
+                    position: relative;
+                    z-index: 0;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 10px;
+                    left: 0;
+                }
+
+                .clickUp_img {
+                    z-index: 5;
+                    position: absolute;
+                    top: 50%;
+                    left: 35%;
+                    border : 1px solid;
+                    cursor: pointer;
+                }
+                .clickUp_img:hover{
+                  background: #33333354;
+                 
+                }
+                .input-up {
+                        display: none;
+                        position: relative;
+                        border: 1px
+                    }
+
+                    .input-up  label {
+                        position: relative;
+                        width: 200px;
+                        height: 40px;
+                        background-color: #F3EFEF;
+                        top: 12px;
+                        border-radius: 5px;
+                        padding: 8px 12px;
+                        cursor: pointer;
+                        border: 1px solid;
+                        
+                    }
+                    .input-up  label  span {
+                            position: relative;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: 23px;
+                            color: #333333;
+
+                        }
 /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
 @media (max-width: 100%) {
   nav, article {
     width: 100%;
     height: auto;
   }
+}
+body{
+  background: #3333330d;
+}
+form{
+    padding: 11px;
+    border: 1px solid;
+    border-radius: 10px;
+    background: #fff;
+    margin-bottom: 20px ;
+}
+nav{
+    border: 1px solid;
+    border-radius: 10px;
+    background: #fff;
+    margin: 22px 0;
+    
 }
 </style>
 </head>
@@ -79,15 +160,7 @@ section:after {
 
 <section>
 
-  <nav>
-    <ul>
-    <li><a href="home.php">Trang Chủ</a></li>
-      <li><a href="#"></br></a> </li>
-      <li><a href="admin.php">Tổng quan</a></li>
-      <li><a href="#"></br></a> </li>
-      <li><a href="quanlygiohang.php">quản lý giỏ hàng</a></li>
-    </ul>
-  </nav>  
+<?php require_once 'navadmin.php'; ?>
   <article>
     <?php
     require_once "./connect.php";
@@ -123,10 +196,20 @@ section:after {
     <td height="50">Hình ảnh</td>
 
 
- <td>
+ <!-- <td>
    <p><?php echo $data['anh']?></p>
    <input type="file" name="anh" style="height: 25px;width: 327px; padding: 5px 10px" required value="<?php echo $data['anh']?>">
-  </td>
+  </td> -->
+  <td> <div class="klot" id="klot">
+            <img id="output" src="./img/<?php echo $data['anh']?>" alt="" />
+            <div class="clickUp_img">
+                <input type="file" name="pdf" id="file" class="input-up" onchange="loadFile(event)">
+                <label for="file">
+                <span class="file-button">
+                    Editload hình ảnh
+                  </span>
+                </label>
+            </div></td>
   </tr>
   <tr>
     <td height="50">Giá</td>
@@ -147,4 +230,13 @@ section:after {
 
 
 </body>
+<script>
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+</script>
 </html>

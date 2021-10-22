@@ -6,10 +6,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<style>
+		body{
+			background: #fafafa;
+		}
 		.detailsMain {
     width: 100%;
     display: flex;
     justify-content: space-between;
+	border-radius: 10px;
+    border: 1px solid;
+    padding: 10px;
+	background: #fff;
 }
 
 .detailsImg {
@@ -22,6 +29,38 @@
 
 .detaisText {
     width: 55%;
+}
+.transport{
+	display: flex;
+	margin-bottom:50px ;
+}
+.transportLeft h4 {
+    font-size: 1.2em;
+}
+.transportRight{
+	padding: 0px 10px
+}
+.transportRight h5{
+	font-size: 1.2em;
+	color: #636363;
+	margin: 0 0 10px 0;
+}
+.transportRight h5 span{
+	font-size: 1em;
+	opacity: .6;
+}
+.price{
+	background: #fafafa;
+	padding: 20px;
+}
+
+
+.price h5{
+	color: #d0011b;
+	margin-top:10px ;
+}
+.price h5 span{
+	color: #333;
 }
 	</style>
 </head>
@@ -49,14 +88,37 @@ while ($row = $query->fetch_assoc()) : ?>
 		<img src="./img/<?= $row['anh'] ?>" alt="" >
 		</div>
 		<div class="detaisText">
-		<a style="margin: 0; text-transform: uppercase; font-size: 3em"><?= $row['ten'] ?></a><br />
-	<br />
-	<a style="margin: 15px 0;font-weight: bold;font-size: 1.5em"><?= number_format($row['gia']) ?>VNĐ</a><br />
+		<a  style="margin: 0; text-transform: uppercase; font-size: 3em"><?= $row['ten'] ?></a><br />
+		<br /><br />
+		<div class="price">
+	
+	   <a class="priceRed" style="color: #d0011b; margin: 15px 0;font-weight: bold;font-size: 1.5em"><?= number_format($row['gia']) ?>VNĐ</a><br />
+	
+		<h5>
+			gì cũng rẻ <span><i class="fal fa-question-circle"></i></span>
+		</h5>
+		<span>Giá tốt nhất so với các sản phẩm cùng loại trên thị trường!</span>
+		</div>
+		<br />
+		<br />
+	<h3>Mô tả sản phẩm: </h3>
 	<br />
 	<a style="margin: 15px 0;font-size: 1.2em"><?= $row['mota'] ?></a><br />
 	<br />
 	<br />
 	<br />
+	<div class="transport">
+		<div class="transportLeft">
+			<h4>Vận chuyển : </h4>
+		</div>
+		<div class="transportRight">
+			<h5>Xử lý đơn hàng bởi Titan</h5>
+			<h5>Miễn Phí vận chuyển </br>
+		<Span>Miễn phí vận chuyển cho đơn hàng trên 1.000.000đ</Span>
+		</h5>
+		</div>
+
+	</div>
 	<?php if (isset($_SESSION['isLogin'])) : ?>
 		      <button style="background-color: #EEB422; border: none;  font-size: 14px; padding: 8px; cursor: pointer;"><a href="addcart.php?&id=<?= $row['id_sp'] ?>" style="text-decoration: none; color: white; ">Mua ngay</a></button>
 					<button style="background-color: #296E01; border: none; font-size: 14px;  padding: 8px;cursor: pointer;"><a href="addcart.php?id=<?= $row['id_sp'] ?>" style="text-decoration: none;color: white; ">Thêm Vào Giỏ Hàng</a></button><br />
@@ -102,7 +164,7 @@ while ($row = $query->fetch_assoc()) : ?>
 		<li class="itemsC itemsS1">
                     <div class="bgImg"><a href="chitietsp.php?id=<?= $row['id_sp'] ?>"><img src="./img/<?= $row['anh'] ?>" alt="" width="229" height="200"></a></div>
                         <h3><?= $row['ten'] ?></h3>
-                        <span><?= number_format($row['gia']) ?></span>
+                        <span><?= number_format($row['gia']) ?> đ</span>
 						<br />
 						<div class="btnH">
 						<?php if (isset($_SESSION['isLogin'])) : ?>

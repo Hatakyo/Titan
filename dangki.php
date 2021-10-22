@@ -21,7 +21,7 @@
 </head>
 
 <body>
-
+<div id="header"> <?php include("header.php") ?> </div>
 	
 		<?php
 		require_once "./connect.php";

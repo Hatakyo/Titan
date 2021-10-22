@@ -24,6 +24,22 @@
     position: relative;
     height: 40px !important;
 }
+.cart {
+    position: relative !important;
+}
+
+.cartNumber {
+    position: absolute !important;
+    width: 18px !important;
+    height: 18px!important;
+    border-radius: 50% !important;
+    top: 22px !important;
+    right: 16px !important;
+    background: #ff0000ba;
+    color: #fff;
+    text-align: center;
+    opacity: 0;
+}
 	</style>
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="./css/style.css">
@@ -107,10 +123,9 @@
             <ul>
 			<li>
                     <a>
-                        <form action ="./timkiem.php" class="search-box" method="post">
+                        <form id="myForm" action ="./timkiem.php" class="search-box" method="post">
                             <input type="text" name="timkiem" value="" placeholder="Tìm Kiếm">
-
-                            <button class="search-button" type="button" name="Tìm Kiếm">
+                            <button class="search-button" type="button" name="Tìm Kiếm" onclick="myFunction()">
                             <i class="fal fa-search" aria-hidden="true"></i>  
                         </button>
                         </form>
@@ -141,13 +156,34 @@
 							</ul>
                 </li>
                 <li>
-                    <a a href="cart.php">
+                     
+                    <a class="cart" href="cart.php">
                         <i class="fal fa-cart-arrow-down"></i>
+                       
+                            <?php
+                           
+                                echo '<span class="cartNumber">';
+                                echo count($_SESSION['cart']);
+                            
+                                echo '</span>';
+                              ?>
+                        
                     </a>
                 </li>
             </ul>
         </div>
     </nav>
 </body>
-
+<script>
+    function myFunction() {
+        document.getElementById("myForm").submit();
+    }
+  var A =  document.querySelector('.cartNumber');
+  console.log(typeof document.querySelector('.cartNumber').innerText === 'number')
+  setTimeout(function(){ 
+      if(document.querySelector('.cartNumber').innerText >= 0){
+           A.style.opacity = "1"
+      }
+      }, 1000);
+</script>
 </html>

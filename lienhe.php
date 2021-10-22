@@ -26,24 +26,32 @@
 				</table>
 			</td>
 			<td width="40%">
+
+			<form action="upykienkh.php"  method="post" enctype="multipart/form-data">
 				<table width="90%" border="0" style="margin: auto">
+				    <tr>
+						<td>
+							<h1>Ý kiến khách hàng</h1>
+						</td>
+					</tr>
 					<tr>
 						<td width="100%">Tên : <br />
-							<input type="text" style="height: 25px;width: 80%;border-style: solid; padding: 5px 10px" /></td>
+							<input type="text" name="name" style="height: 25px;width: 80%;border-style: solid; padding: 5px 10px" required/></td>
 					</tr>
 					<tr>
-						<td>Email : <br /><input type="text" style="height: 25px;width: 80%;border-style: solid; padding: 5px 10px"></td>
+						<td>Email : <br /><input type="text" name="email" style="height: 25px;width: 80%;border-style: solid; padding: 5px 10px" required></td>
 					</tr>
 					<tr>
-						<td>Điện thoại : <br /><input type="text" style="height: 25px;width: 80%;border-style: solid; padding: 5px 10px"></td>
+						<td>Điện thoại : <br /><input type="text" name="sdt" style="height: 25px;width: 80%;border-style: solid; padding: 5px 10px" required></td>
 					</tr>
 					<tr>
-						<td>Tin nhắn : <br /><textarea type="text" style="height: 100px;width: 80%;border-style: solid; padding: 5px 10px"> </textarea> </td>
+						<td>Tin nhắn : <br /><textarea type="text" name="comment" style="height: 100px;width: 80%;border-style: solid; padding: 5px 10px" required> </textarea> </td>
 					</tr>
 					<tr>
-						<td style="padding: 10px 20px; font-size: 30px;"><a><input type="submit" value="Gửi"></a></td>
+						<td ><a><input style="padding: 5px 10px;" type="submit" value="Gửi"></a></td>
 					</tr>
 				</table>
+</form>
 			</td>
 		</tr>
 	</table>

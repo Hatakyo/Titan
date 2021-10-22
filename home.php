@@ -54,7 +54,7 @@ require_once './mess.php';
 		<li class="itemsC itemsS1">
                     <div class="bgImg"><a href="chitietsp.php?id=<?= $row['id_sp'] ?>"><img src="./img/<?= $row['anh'] ?>" alt="" width="229" height="200"></a></div>
                         <h3><?= $row['ten'] ?></h3>
-                        <span><?= number_format($row['gia']) ?></span>
+                        <span><?= number_format($row['gia']) ?> đ</span>
 						<br />
 						<div class="btnH">
 						<?php if (isset($_SESSION['isLogin'])) : ?>
@@ -108,7 +108,7 @@ require_once './mess.php';
 		<li class="itemsC itemsS2">
                     <div class="bgImg"><a href="chitietsp.php?id=<?= $row['id_sp'] ?>"><img src="./img/<?= $row['anh'] ?>" alt="" width="229" height="200"></a></div>
                         <h4><?= $row['ten'] ?></h3>
-                        <span><?= number_format($row['gia']) ?></span>
+                        <span><?= number_format($row['gia']) ?> đ</span>
 						<br />
 						<div class="btnH">
 						<?php if (isset($_SESSION['isLogin'])) : ?>
